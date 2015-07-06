@@ -1,0 +1,34 @@
+﻿<Window x:Class="YouTubeCommentLottery.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:youTubeCommentLottery="clr-namespace:YouTubeCommentLottery"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Click="SignIn_OnClick" Grid.Row="0">Sign in</Button>
+        <Button Click="SignOut_OnClick" Grid.Row="1">Sign out</Button>
+        <TextBox Name="VideoId" Grid.Row="2">ooiKzlTR15Q</TextBox>
+        <Button Click="GetComments_OnClick" Grid.Row="3">Get comments</Button>
+        <CheckBox Name="RemoveDuplicates" Grid.Row="4">remove duplicate entries by authors</CheckBox>
+        <TextBox Name="ExcludeAuthors" Grid.Row="5">nie|poradnik</TextBox>
+        <TextBox Name="IncludeKeyword" Grid.Row="6">korki</TextBox>
+        <Button Click="SelectRandomComment_OnClick" Grid.Row="7">Select random comment</Button>
+        <ListView Name="Comments" Grid.Row="8">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <youTubeCommentLottery:CommentView/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>

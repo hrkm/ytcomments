@@ -1,0 +1,28 @@
+﻿<Window x:Class="YouTubeCommentLottery.SimpleSelectionDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:youTubeCommentLottery="clr-namespace:YouTubeCommentLottery"
+             mc:Ignorable="d"  Width="525" Height="210"
+             d:DesignHeight="210" d:DesignWidth="525">
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Button Click="GetNextWinner_OnClick" Grid.Row="0">Get next winner</Button>
+        <youTubeCommentLottery:CommentView x:Name="SelectedComment" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Name="WinnerTextBlock" Grid.Row="2" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" Visibility="Hidden">
+            <TextBlock.Triggers>
+                <EventTrigger RoutedEvent="TextBlock.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard TargetProperty="Opacity" TargetName="WinnerTextBlock" AutoReverse="True" RepeatBehavior="Forever">
+                            <DoubleAnimation From="0" To="1" Duration="0:0:1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </TextBlock.Triggers>Winner!</TextBlock>
+    </Grid>
+</Window>
